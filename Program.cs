@@ -83,10 +83,13 @@ namespace Practice_Linq
         {
             //Query 3: Вивести всі домашні матчі збірної Франції за 2021 рік, де вона зіграла у нічию.
 
-            var selectedGames = games;   // Корегуємо запит !!!
+            var selectedGames = games
+                .Where(game => game.Country == "France" && game.Home_team == "France" && game.Date.Year == 2021 && game.Home_score == game.Away_score);   // Корегуємо запит !!!
 
             // Перевірка
             Console.WriteLine("\n======================== QUERY 3 ========================");
+
+            foreach (FootballGame game in selectedGames) { PrintMatch(game); }
         }
 
         // Запит 4
